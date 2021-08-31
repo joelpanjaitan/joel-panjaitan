@@ -150,4 +150,4 @@ console.log( newgame2.generateBoard()); // Array Multidimensi, inner array berup
 // RELEASE 5 & 6
 const ade = process.argv.slice(2)
 const newgame = new HarvestGame(ade[0], ade[1], ade[2], ade[3]);
-//newgame.play() // Cek gif pada gdrive
+newgame.play() // Cek gif pada gdrive
