@@ -4,7 +4,7 @@ class HarvestGame {
   // your code here 
   constructor(){}
 
-  // buat method untuk validasi, nama di bebaskan tapi dibuat yang benar peruntukannya
+  // buat method untuk validasi, nama di bebaskan tapi dibuat yang benar peruntukannya123
 
 
   countMoney(){}
