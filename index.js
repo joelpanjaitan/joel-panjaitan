@@ -71,13 +71,14 @@ class HarvestGame {
       this.plantingAnimation()
       this.clearScreen()
       let board = this.generateBoard()
-      this.randomHarvest()
+      this.randomHarvest(board)
       this.countMoney()
     }
   }
 
-  randomHarvest(){
-    for (day=1;day<=this.totalHarvest;day++){
+  randomHarvest(board){
+    let qq = 1
+    while (qq<=this.totalHarvest){
       let newH = Math.floor(Math.random()*this.height)
       let newW = Math.floor(Math.random()*this.width)
 
@@ -92,6 +93,7 @@ class HarvestGame {
         }
         this.sleep(1000)
       }
+      qq++
     }
   }
 
