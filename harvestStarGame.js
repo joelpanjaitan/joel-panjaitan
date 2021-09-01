@@ -9,12 +9,21 @@
 
 class HarvestStarGame {
   // your code here 
+  // constructor (height, width, totalHarvest, duration=3, money=0, symbol='✼'){
+  //   this.height = height
+  //   this.width = width
+  //   this.totalHarvest = totalHarvest
+  //   this.duration = duration
+  //   this.money = money
+  //   this.symbol = symbol
+  // }
 
 }
 
 
 // TEST CASE Harvest Game Part 2 
-const gameStar = new HarvestStarGame()  // isi parameter sesuai kebutuhan
+// isi parameter sesuai kebutuhan  
+const gameStar = new HarvestStarGame(contoh1[0], contoh1[1], contoh1[2], contoh1[3])
 
 gameStar.play()
 
