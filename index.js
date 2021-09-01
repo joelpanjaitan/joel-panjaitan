@@ -102,7 +102,6 @@ class HarvestGame {
   }
 
   randomHarvest(board){
-    
     let temp = 1
     let qq = 0  
     while (qq<this.totalHarvest){
