@@ -2,24 +2,26 @@
 
 class HarvestGame {
   // your code here 
-  constructor(height, width, totalHarvest, duration=3, money=0, symbol = '✼'){
+  #vacantPositions
+  constructor(height, width, totalHarvest, duration=3, money=0, symbol = '✼ '){
     this.height = height
     this.width = width
     this.totalHarvest = totalHarvest
     this.duration = duration 
     this.money = money
     this.symbol = symbol
+    this.#vacantPositions = []
   }
-  #vacantPositions([]){}
+  
   // buat method untuk validasi, nama di bebaskan tapi dibuat yang benar peruntukannya123
   
-  checkinput (){
+  checkinput ( ){
     if (this.height<2){
-      return `Tinggi dari ladang minimal 2!`
+      console.log( `Tinggi dari ladang minimal 2!`)
     } else if (this.width<2){
-      return `Lebar dari ladang minimal 2!`
+      console.log( `Lebar dari ladang minimal 2!`)
     } else if (this.totalHarvest>(this.height*this.width)){
-      return `Total panen melebihi maksimum total panen dari ladang yang dimiliki!`
+      console.log(`Total panen melebihi maksimum total panen dari ladang yang dimiliki!`)
     } else {
       return true
     }
@@ -76,7 +78,7 @@ class HarvestGame {
       this.countMoney()
       console.log( `Your money is ${this.money}`)
     } else {
-      this.checkinput()
+      return
     }
   }
 
@@ -160,7 +162,7 @@ const game = new HarvestGame(4, 6, 8, 10) // isi parameter sesuai kebutuhan
 //Release 0.1
 const contoh1 = process.argv.slice(2)
 const aab = new HarvestGame(Number(contoh1[0]),Number(contoh1[1]),Number(contoh1[2]),contoh1[3])
-// console.log(aab);
+ //console.log(aab);
 // RELEASE 1
 const gameTestValidation = new HarvestGame(0, 2, 3)
 //console.log(gameTestValidation.checkinput());
