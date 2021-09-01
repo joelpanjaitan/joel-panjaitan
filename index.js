@@ -3,7 +3,7 @@
 class HarvestGame {
   // your code here 
   #vacantPositions
-  constructor(height, width, totalHarvest, duration=3, money=0, symbol = '✼ '){
+  constructor(height, width, totalHarvest, duration=3, money=0, symbol = '✼'){
     this.height = height
     this.width = width
     this.totalHarvest = totalHarvest
@@ -12,7 +12,13 @@ class HarvestGame {
     this.symbol = symbol
     this.#vacantPositions = []
   }
-  
+  get vacantPositions(){
+    return this.#vacantPositions
+  }
+
+  set vacantPositions(str){
+    this.#vacantPositions = str
+  }
   // buat method untuk validasi, nama di bebaskan tapi dibuat yang benar peruntukannya123
   
   checkinput ( ){
@@ -23,7 +29,7 @@ class HarvestGame {
     } else if (this.totalHarvest>(this.height*this.width)){
       console.log(`Total panen melebihi maksimum total panen dari ladang yang dimiliki!`)
     } else {
-      return true
+      return true 
     }
   }
 
@@ -51,7 +57,7 @@ class HarvestGame {
       if (i!==this.duration){
         console.log(this.pushBoard());
       } else {
-        console.log(this.pushBoard('✼'));
+        console.log(this.pushBoard(`${this.symbol}`));
       }
     this.sleep(1000)
     }
@@ -62,7 +68,7 @@ class HarvestGame {
     for (let i=0;i<this.height;i++){
       let board = []
         for (let j=0;j<this.width;j++){
-          board.push ('✼')
+          board.push (`${this.symbol}`)
         }
         result.push(board)
       }
@@ -73,10 +79,29 @@ class HarvestGame {
   play(){
     if (this.checkinput()){
       this.plantingAnimation()
+      this.clearScreen()
       let board = this.generateBoard()
+      console.log(`DAY: ${this.duration}`);
+        let rr=0
+        while(rr<board.length){
+          console.log(board[rr].join(" "))
+          rr++
+        }
       this.randomHarvest(board)
       this.countMoney()
       console.log( `Your money is ${this.money}`)
+      // let t=0
+      // while (t<board.length){
+      //   let k=0
+      //   while (k<board[t].length){
+      //     // if (board[k][t] ==this.symbol){
+      //     //   this.#vacantPositions.push ([t,k])
+      //     // }
+      //     k++
+      //   }
+      //   t++
+      // }
+       console.log (this.#vacantPositions)
     } else {
       return
     }
@@ -105,15 +130,14 @@ class HarvestGame {
 
   randomHarvest(board){
     let temp = 1
-    let qq = 0  
-    while (qq<this.totalHarvest){
+    let qq = 1 
+    while (qq<=this.totalHarvest){
       let newH = Math.floor(Math.random()*this.height)
       let newW = Math.floor(Math.random()*this.width)
       this.clearScreen()
-      
-      if (board[newH][newW]==='✼'){
-        
+      if (board[newH][newW]===`${this.symbol}`){
         board[newH][newW] = `${temp}`
+        this.#vacantPositions.push([newH,newW])
         temp++
         console.log(`DAY: ${this.duration}`);
         let rr=0
@@ -121,6 +145,7 @@ class HarvestGame {
           console.log(board[rr].join(" "))
           rr++
         }
+        
         this.sleep(1000)
       } 
         qq++
@@ -187,3 +212,5 @@ const newgame2 = new HarvestGame(ade2[0], ade2[1], ade2[2], ade2[3]);
 const ade = process.argv.slice(2)
 const newgame = new HarvestGame(ade[0], ade[1], ade[2], ade[3]);
 newgame.play() // Cek gif pada gdrive
+
+module.exports = HarvestGame;
