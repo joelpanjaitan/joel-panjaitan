@@ -34,7 +34,7 @@ class HarvestHeartGame extends index{
       for (let j = 0; j < this.width; j++) {
         if (i % 2 === 0) {
           if (j % 2 === 0) {
-            temp.push(`♥︎`);
+            temp.push(`${this.symbol}`);
           } else {
             temp.push(`${emptyHeart} `);
           }
@@ -42,7 +42,7 @@ class HarvestHeartGame extends index{
           if (j % 2 === 0) {
             temp.push(`${emptyHeart} `);
           } else {
-            temp.push(`♥︎`);
+            temp.push(`${this.symbol}`);
           }
         }
       }
