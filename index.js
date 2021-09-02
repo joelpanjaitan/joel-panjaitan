@@ -90,18 +90,8 @@ class HarvestGame {
       this.randomHarvest(board)
       this.countMoney()
       console.log( `Your money is ${this.money}`)
-      // let t=0
-      // while (t<board.length){
-      //   let k=0
-      //   while (k<board[t].length){
-      //     // if (board[k][t] ==this.symbol){
-      //     //   this.#vacantPositions.push ([t,k])
-      //     // }
-      //     k++
-      //   }
-      //   t++
-      // }
-       console.log (this.#vacantPositions)
+      
+       console.log (this.vacantPositions)
     } else {
       return
     }

@@ -26,13 +26,68 @@ class HarvestHeartGame extends index{
       return true 
     }
   }
+  generateBoard() {
+    let result = [];
+    let emptyHeart = "♡";
+    for (let i = 0; i < this.height; i++) {
+      let temp = [];
+      for (let j = 0; j < this.width; j++) {
+        if (i % 2 === 0) {
+          if (j % 2 === 0) {
+            temp.push(`${this.symbol} `);
+          } else {
+            temp.push(`${emptyHeart} `);
+          }
+        } else {
+          if (j % 2 === 0) {
+            temp.push(`${emptyHeart} `);
+          } else {
+            temp.push(`${this.symbol} `);
+          }
+        }
+      }
+
+      result.push(temp);
+    }
+
+    return result;
+  }
+  countMoney(){
+    this.money = this.totalFullHeart*100
+    return this.money
+  }
+  randomHarvest(board) {
+		let qq = 1;
+
+		while (qq <= this.totalHarvest) {
+			this.clearScreen();
+			let newH = Math.floor(Math.random() * this.height);
+			let newW = Math.floor(Math.random() * this.width);
+      if (isNaN(Number(board[newH][newW]))) {
+				if (board[newH][newW] === this.symbol) {
+					this.totalFullHeart += 1;
+				}		
+				board[newH][newW] = `${qq} `;
+				qq++;
+				this.vacantPositions.push([newH,newW])
+        console.log(`DAY: ${this.duration}`);
+        let rr=0
+        while(rr<board.length){
+          console.log(board[rr].join(" "))
+          rr++
+        }
+				
+				this.sleep(1000);
+			}
+		}
+	}
 }
 
 
 // TEST CASE Harvest Game Part 2 
 const eib = process.argv.slice(2)
 const gameHeart = new HarvestHeartGame(Number(eib[0]),Number(eib[1]),Number(eib[2]),eib[3])  // isi parameter sesuai kebutuhan
-console.log (gameHeart)
-//gameHeart.play()
-
-//console.log(gameHeart.vacantPositions) // getter
+//console.log (gameHeart)
+gameHeart.play()
+console.log(`Total harvest ${gameHeart.totalHarvest} and total full heart ${gameHeart.totalFullHeart}`);
+console.log(gameHeart.vacantPositions) // getter

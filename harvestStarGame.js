@@ -14,7 +14,7 @@ class HarvestStarGame extends index{
     this.duration = duration
     this.symbol = symbol
   }
-  checkinput() {
+  checkinput () {
     if(this.height<2){
       console.log (`Tinggi dari ladang minimal 2!`)
     } else if (this.width<2){
