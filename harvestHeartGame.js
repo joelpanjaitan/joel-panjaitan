@@ -34,7 +34,7 @@ class HarvestHeartGame extends index{
       for (let j = 0; j < this.width; j++) {
         if (i % 2 === 0) {
           if (j % 2 === 0) {
-            temp.push(`${this.symbol} `);
+            temp.push(`♥︎`);
           } else {
             temp.push(`${emptyHeart} `);
           }
@@ -42,7 +42,7 @@ class HarvestHeartGame extends index{
           if (j % 2 === 0) {
             temp.push(`${emptyHeart} `);
           } else {
-            temp.push(`${this.symbol} `);
+            temp.push(`♥︎`);
           }
         }
       }
@@ -63,7 +63,7 @@ class HarvestHeartGame extends index{
 			this.clearScreen();
 			let newH = Math.floor(Math.random() * this.height);
 			let newW = Math.floor(Math.random() * this.width);
-      if (isNaN(Number(board[newH][newW]))) {
+      if (((board[newH][newW]) === `${this.symbol} ` || board[newH][newW] === `♡ `)) {
 				if (board[newH][newW] === this.symbol) {
 					this.totalFullHeart += 1;
 				}		

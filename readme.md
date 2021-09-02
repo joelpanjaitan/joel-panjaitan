@@ -8,5 +8,3 @@ Simbol-simbol yang akan digunakan pada challenge ini `✼ ★ ♥︎ ♡`
 - Part 2 : harvestStarGame.js & harvestHeartGame.js
 
 **Challenge ini dinilai** 💯
-
-123123

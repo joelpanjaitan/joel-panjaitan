@@ -91,7 +91,7 @@ class HarvestGame {
       this.countMoney()
       console.log( `Your money is ${this.money}`)
       
-       console.log (this.vacantPositions)
+       console.log (this.#vacantPositions)
     } else {
       return
     }
@@ -201,6 +201,6 @@ const newgame2 = new HarvestGame(ade2[0], ade2[1], ade2[2], ade2[3]);
 // RELEASE 5 & 6
 const ade = process.argv.slice(2)
 const newgame = new HarvestGame(ade[0], ade[1], ade[2], ade[3]);
-newgame.play() // Cek gif pada gdrive
+//newgame.play() // Cek gif pada gdrive
 
 module.exports = HarvestGame;

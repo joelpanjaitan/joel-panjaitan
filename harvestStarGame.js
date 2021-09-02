@@ -25,6 +25,17 @@ class HarvestStarGame extends index{
       return true
     }
   }
+  generateBoard(){
+    let result = []
+    for (let i=0;i<this.height;i++){
+      let board = []
+        for (let j=0;j<this.width;j++){
+          board.push (`${this.symbol}`)
+        }
+        result.push(board)
+      }
+      return result
+  }
 }
 
 
